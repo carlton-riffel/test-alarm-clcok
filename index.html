@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Alarm Clock</title>
+  <!-- reference stuff-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--<script src="combodate.js" type="text/javascript"></script>-->
+<script src="moment.js" type="text/javascript"></script>
+<style>
+html{
+    top: 0;
+    padding-top: 0px;
+}
+    body{
+     top: 0;
+     font-size: 0;
+     align-content: center;
+    text-align: center;
+     clear: both;
+    background-color:#000;
+     height: 0;
+    margin: 0 auto;
+}
+    #content{
+        align-content: center;
+        align-content: center;
+     max-width:   1000px;
+    width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+#header{
+    position:relative;
+ background-color:#01b2c6;
+    font: Bold 100px Lucida Console, Tahoma, sans-serif;
+    width: 100%;
+    height: 220px;
+     margin-top: -134px;
+
+}
+    h1{
+
+    }
+
+    #background {
+    z-index:-1;
+    position: absolute;
+    min-height:100%;
+        background-color:#000;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    background: url(bg1.jpg) no-repeat center center;
+    -webkit-background-size: cover; /* Add in these */
+    -moz-background-size: cover;    /* four lines to */
+    -o-background-size: cover;      /* remove the white space*/
+    background-size: cover;         /* around images */
+}
+
+.textbox {
+
+    color: white;
+    background: transparent;
+    height: 200px;
+    width: 50%;
+    border: solid 2px #01b2c6;
+    outline: 0;
+    text-align: center;
+    font-size: 75px;
+    font: normal Verdana, Tahoma, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;
+    -webkit-text-align: center;
+    -webkit-input-placeholder
+  text-align: center;
+    display: block;
+    margin:0 auto;
+    margin-top: 70px;
+
+}
+
+.textbox:focus {
+    border-color: #d2024b;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 0 15px;
+    text-align: center;
+}
+
+.btn{
+ -moz-box-shadow: 0px 1px 17px -5px #0a0a0a;
+	-webkit-box-shadow: 0px 1px 17px -5px #0a0a0a;
+	box-shadow: 0px 1px 17px -5px #0a0a0a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #01b2c6), color-stop(1, #019fb2) );
+	background:-moz-linear-gradient( center top, #01b2c6 5%, #025973 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#01b2c6', endColorstr='#019fb2');
+	background-color:#01b2c6;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0px;
+	border:1px solid #0a0a0a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:normal Verdana, Tahoma, sans-serif;
+	font-size:30px;
+	font-weight:normal;
+	font-style:normal;
+	height:120px;
+	line-height:auto;
+	width:300px;
+	text-decoration:none;
+	text-align:center;
+    align-content: center;
+    margin: 80px 75px 80px 75px;
+}
+
+
+    #submit{
+        -moz-box-shadow: 0px 1px 17px -5px #0a0a0a;
+	-webkit-box-shadow: 0px 1px 17px -5px #0a0a0a;
+	box-shadow: 0px 1px 17px -5px #0a0a0a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #01b2c6), color-stop(1, #019fb2) );
+	background:-moz-linear-gradient( center top, #01b2c6 5%, #025973 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#01b2c6', endColorstr='#019fb2');
+	background-color:#01b2c6;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0px;
+	border:1px solid #0a0a0a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:normal Verdana, Tahoma, sans-serif;
+	font-size:50px;
+	font-weight:bold;
+	font-style:normal;
+	height:100px;
+	line-height:auto;
+	width:60%;
+	text-decoration:none;
+	text-align:center;
+        margin-bottom: 50px;
+    }
+
+
+#sleep{
+    color: white;
+    align-content: center;
+    width: 50%;
+    font-family:normal Verdana, Tahoma, sans-serif;
+	font-size:35px;
+
+
+}
+
+    @media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+
+}
+
+
+</style>
+    </head>
+
+<body>
+<div id="content">
+<header id="header">
+<div><h1>GET UP</h1> </div>
+</header>
+   <div>
+    <input type="time" id="time" data-time="" class="textbox" value="" ></input></div>
+
+<div><button class="btn" id="preview">Set</button>
+</div>
+<button id="submit">submit</button>
+<p><span id="sleep"> </span></p>
+<div class="alert fade in" id="info-alert" hidden data-spy="affix"></div>
+    <div id="holding"></div>
+<div id="background"></div>
+    </div>
+
+
+
+    <script>
+$( document ).ready(function(){
+    var deviceID    = "1d0021001047363336383437";
+    var accessToken = "af5e5b9c32ae3f4b7f143149c10e125a78b46d40";
+    var setFunc = "submit";
+    var getFunc = "setTime";
+    var errorMessage = "You might need to contact Carlton about a problem";
+    //preview time on click
+
+    $( "#preview" ).click(function() {
+
+        var today = moment().format('hh:mm a');
+    var wakeTime = document.getElementById("time").value;
+    var tempTime = moment(wakeTime,'hh:mm a').format('hh:mm a');
+    var showTime = moment(tempTime,'hh:mm a').diff(moment(today,'hh:mm a'));
+
+    var printHours = "Good Night - You'll need to get up in" + " " + (Math.abs(((showTime/1000)/60)/60)).toFixed(2) + " " +"Hours";
+    $('#sleep').html(printHours);
+        });
+
+
+    //set time on click
+    $( "#submit" ).click(function() {
+    var today = moment().format('hh:mm a');
+    var wakeTime = document.getElementById("time").value;
+  var tempTime = moment(wakeTime,'hh:mm a').format('hh:mm a');
+    var setTime = moment(wakeTime,'hh:mm a').format('X');
+
+    var printHours = "Your alarm has been set for" + " " + setTime + " " +"Hours";
+    var reject = "Sorry stupid - you can't cheat the system - GEEETTTTUPPPP!";
+
+
+
+var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+
+        $.post( requestURL, {params:setTime, access_token: accessToken},function(data){
+            if(data.return_value ==200) {
+                $('#sleep').html(printHours);
+            } else {
+                $('#sleep').html(reject);
+             }
+
+            }).error($('#sleep').html(errorMessage));//from post
+        }); //from submit
+
+})
+</script>
+</body>
+</html>
